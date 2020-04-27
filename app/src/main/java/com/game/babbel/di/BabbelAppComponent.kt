@@ -4,6 +4,7 @@ import android.app.Application
 import com.game.babbel.BabbelApp
 import com.game.babbel.game.di.GameDomainModule
 import com.game.babbel.game.di.GamePresentationModule
+import com.game.babbel.game.di.GameLocalModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -15,7 +16,7 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         FragmentBuilderModule::class,
-        ActivityBuilderModule::class,GamePresentationModule::class,GameDomainModule::class,
+        ActivityBuilderModule::class,GamePresentationModule::class,GameDomainModule::class,GameLocalModule::class,
         AppModule::class
     ]
 )
