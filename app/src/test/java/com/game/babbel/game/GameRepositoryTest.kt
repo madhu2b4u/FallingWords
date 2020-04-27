@@ -53,7 +53,7 @@ class GameRepositoryTest {
 
 
     @Test(expected = Exception::class)
-    fun testGetCategoriesThrowException() = mainCoroutineRule.runBlockingTest {
+    fun testThrowException() = mainCoroutineRule.runBlockingTest {
         Mockito.doThrow(Exception("error")).`when`(localDataSource.getWords())
         repository.getWords()
     }

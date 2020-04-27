@@ -1,6 +1,7 @@
 package com.game.babbel.di
 
 import com.game.babbel.game.presentation.ui.fragments.GameFragment
+import com.game.babbel.game.presentation.ui.fragments.ResultFragment
 import com.game.babbel.game.presentation.ui.fragments.TutorialFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -14,6 +15,10 @@ abstract class FragmentBuilderModule {
 
     @ContributesAndroidInjector
     abstract fun contributesTutorialFragment(): TutorialFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesResultFragment(): ResultFragment
+
 
 
 }

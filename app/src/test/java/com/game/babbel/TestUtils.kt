@@ -10,5 +10,4 @@ class TestUtils {
         WordsListModelItem("teacher","profesora"),
         WordsListModelItem("class","curso")
     )
-
 }

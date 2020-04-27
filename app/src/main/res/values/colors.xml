@@ -10,7 +10,7 @@
     <color name="red">#ff0000</color>
     <color name="white_15">#26ffffff</color>
     <color name="white_50">#80FFFFFF</color>
-    <color name="color_right">#F76353</color>
-    <color name="color_wrong">#00CC99</color>
+    <color name="color_wrong">#F76353</color>
+    <color name="color_right">#00CC99</color>
     <color name="color_confirmed">#F2B900</color>
 </resources>

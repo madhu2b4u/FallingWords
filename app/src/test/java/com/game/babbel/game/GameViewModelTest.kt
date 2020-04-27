@@ -1,10 +1,12 @@
 package com.game.babbel.game
 
+import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.*
 import com.game.babbel.LiveDataTestUtil
 import com.game.babbel.MainCoroutineRule
 import com.game.babbel.TestUtils
+import com.game.babbel.common.Constants
 import com.game.babbel.game.data.models.WordsListModelItem
 import com.game.babbel.game.domain.GameUseCase
 import com.game.babbel.game.presentation.viewmodel.GameViewModel
@@ -17,6 +19,8 @@ import org.junit.Rule
 import org.junit.Test
 import com.game.babbel.common.Result
 import com.game.babbel.common.Status
+import org.junit.Assert
+import org.mockito.Mockito
 
 
 @ExperimentalCoroutinesApi
@@ -30,14 +34,17 @@ class GameViewModelTest {
     var instantExecutorRule = InstantTaskExecutorRule()
     lateinit var viewModel: GameViewModel
     lateinit var useCase: GameUseCase
+    lateinit var listResult: Result<List<WordsListModelItem>>
 
     @Before
     fun init() {
-        //empty
+       //empty
+
+
     }
 
     @Test
-    fun testCategoryLoadingData() = mainCoroutineRule.runBlockingTest {
+    fun loadingData() = mainCoroutineRule.runBlockingTest {
         useCase = mock {
             onBlocking { getWords() } doReturn object :
                 LiveData<Result<List<WordsListModelItem>>>() {
@@ -56,7 +63,7 @@ class GameViewModelTest {
     }
 
     @Test
-    fun testCategorySuccessData() = mainCoroutineRule.runBlockingTest {
+    fun successData() = mainCoroutineRule.runBlockingTest {
         useCase = mock {
             onBlocking { getWords() } doReturn object :
                 LiveData<Result<List<WordsListModelItem>>>() {
@@ -77,7 +84,7 @@ class GameViewModelTest {
     }
 
     @Test
-    fun testCategoryErrorData() = mainCoroutineRule.runBlockingTest {
+    fun errorData() = mainCoroutineRule.runBlockingTest {
         useCase = mock {
             onBlocking { getWords() } doReturn object :
                 LiveData<Result<List<WordsListModelItem>>>() {
@@ -96,8 +103,5 @@ class GameViewModelTest {
                     LiveDataTestUtil.getValue(result).message == "error"
         )
     }
-
-
-
 
 }
